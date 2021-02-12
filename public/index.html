@@ -19,11 +19,16 @@
             console.log('perdimos conexion con el servidor')
         })
 
-        socket.emit('message', {
-            accion: 'mamerto o no mamerto'
-        });
-        socket.on('message', (payload) => {
+        socket.on('emitir-mensaje', (payload) => {
             console.log(payload);
+        });
+        socket.on('active-bands', (payload) => {
+            console.clear;
+            console.table(payload);
+        });
+        socket.on('vote-band', (payload) => {
+            console.clear;
+            console.table(payload);
         });
     </script>
 </body>
